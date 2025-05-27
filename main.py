@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 st.title("📍 포항시 2024 지역별 대기통합지수 지도 시각화")
 
 # GitHub 원본 CSV URL (파일명은 영문으로 변경한 것)
-csv_url = "https://raw.githubusercontent.com/yourusername/yourrepo/main/pohang_air_index_2024.csv"
+csv_url = "https://raw.githubusercontent.com/Romano0807/air/main/pohang_air_index_2024.csv"
 
 @st.cache_data
 def load_data(url):
