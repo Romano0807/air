@@ -6,7 +6,7 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 st.title("📍 포항시 2024 지역별 대기통합지수 지도 시각화")
 
-# GitHub 원본 CSV URL (파일명은 영문으로 변경한 것)
+# GitHub 원본 CSV URL (영문 파일명 사용)
 csv_url = "https://raw.githubusercontent.com/Romano0807/air/main/pohang_air_index_2024.csv"
 
 @st.cache_data
@@ -39,19 +39,21 @@ fig = px.scatter_mapbox(
     lat="위도",
     lon="경도",
     color="대기통합지수",
-    size="대기통합지수",
     hover_name="지역",
     hover_data={"대기통합지수": True, "위도": False, "경도": False},
     color_continuous_scale="RdYlGn_r",
-    size_max=20,
     zoom=11,
     height=700
 )
 
+# 마커 크기 고정
+fig.update_traces(marker=dict(size=30))
+
+# 지도 스타일 및 여백 설정
 fig.update_layout(
     mapbox_style="carto-positron",
     margin={"r": 0, "t": 0, "l": 0, "b": 0}
 )
 
+# 결과 출력
 st.plotly_chart(fig, use_container_width=True)
-
