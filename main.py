@@ -47,7 +47,7 @@ fig = px.scatter_mapbox(
 )
 
 # 마커 크기 고정
-fig.update_traces(marker=dict(size=30))
+fig.update_traces(marker=dict(size=100))
 
 # 지도 스타일 및 여백 설정
 fig.update_layout(
